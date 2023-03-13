@@ -1,0 +1,110 @@
+\documentclass[	runningheads,
+				a4paper]{llncs}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{hyperref}
+
+% Support for special characters like "Umlaute"
+\usepackage[utf8]{inputenc}
+
+
+\usepackage[english]{babel}
+
+
+%*********************************************************************%
+% META                                                                %
+%*********************************************************************%
+
+\newcommand{\university}{Saarland University}
+\newcommand{\school}{Saarland Informatics Campus}
+
+
+\newcommand{\thetitle}{Seminar: Understanding of configurable software systems}
+\newcommand{\shorttitle}{Seminar: Understanding of configurable software systems}
+\newcommand{\thedate}{January 11}
+
+
+\newcommand{\theforename}{Bipin}
+\newcommand{\thesurname}{Oli}
+
+% Advisors
+
+\newcommand{\advisor}{Advisors}
+
+\newcommand{\advisors}{Prof. Sven Apel, \\ Christian Hechtl}
+
+% Title for the seminar
+
+\newcommand{\theseminartitle}{Dynamic symbolic execution (concolic execution)}
+
+
+%*********************************************************************%
+% THE DOCUMENT                                                        %
+%*********************************************************************%
+
+\begin{document}
+%*********************************************************************%
+% TITLE                                                               %
+%*********************************************************************%
+
+% Arabic page numbering
+\mainmatter 
+	
+% Title including a subtitle for the name of the seminar
+\title{\theseminartitle \\ \small \thetitle}
+
+\author{\theforename\ \thesurname \small \\ \ \\ \advisor : \ \advisors}
+
+% (Optional) This will appear near the page number
+\authorrunning{\shorttitle}
+
+\institute{\school ,\\ \university}
+
+
+\maketitle
+%*********************************************************************%
+% CONTENT                                                             %
+%*********************************************************************%
+% Introduction
+\section{Abstract}
+Concolic execution \cite{godefroid2005dart} is a software verification technique that performs symbolic execution together with concrete input values. Concrete values are selected with the help of a constraint solver to guide a program flow in a particular direction. The selection of concrete values helps to scale the verification to a larger program as it makes the symbolic constraints smaller by selecting specific branches in the program. Compared to random execution, this allows us to guide the analysis in a direction likely to have bugs which makes this technique powerful. However, in doing so we sacrifice the completeness of the analysis in favor of the depth of analysis. The sheer number of branches in a large program makes it difficult to perform a complete analysis, so we have to prioritize the branches likely to contribute to finding a bug. There have been a lot of studies to deal with this path explosion problem. In this paper, I have presented state-of-the-art methods to deal with this problem.
+
+\section{Papers}
+
+
+\begin{itemize}
+  \item 2006: they worked on backtracking algorithms for search heuristics \cite{yan2006backtracking}
+  \item 2007: they combined the fuzzing techniques to improve the coverage \cite{majumdar2007hybrid} \cite{godefroid2007compositional} \cite{godefroid2012sage}
+  \item 2008: Heuristic based approach to select the branches \cite{kousik2008heuristic}
+  \item 2009: they worked on the fitness guided approach to improve the coverage \cite{xie2009fitness}
+  \item 2013: they boosted concolic testing by subsuming paths that are guaranteed to not hit a bug with their interpolation technique \cite{jaffar2013boosting}
+  \item 2014: they introduced a concept of context guided search strategy \cite{seo2014we}
+  \item 2018: automatic selection of suitable heuristic \cite{cha2018automatically}
+  \item 2018: template guided approach \cite{cha2018template}
+  \item 2018: based on probability of program paths and the cost of constraint solving \cite{wang2018towards}
+  \item 2018: they improved the speed of SMT solver by removing the IR layer making it more practical to keep bigger constraints \cite{yun2018qsym}
+  \item 2019: fuzzy search strategy \cite{fsct2019}
+  \item 2019: adaptably changing search heuristics \cite{adapt2019heuristic}
+  \item 2021: Pathcrawler: proposed different strategies to improve the performance of concolic execution on exhaustive branch coverage \cite{pathcrawler2021}
+  \item 2022: Dr. Pathfinder \cite{drPathfinder2022} combined concolic execution with deep reinforement learning to prioritize deep paths over shallow ones for hybrid fuzzing
+\end{itemize}
+
+
+%*********************************************************************%
+% APPENDIX                                                            %
+%*********************************************************************%
+
+% \appendix
+% \section{Appendix}
+% Insert the appendix here. You can alternatively include files via: \include{pathToFile}
+
+%*********************************************************************%
+% LITERATURE                                                          %
+%*********************************************************************%
+% As a recommendation JabRef might be a useful tool for this section. Use myRefs.bib therefore
+\phantomsection
+\bibliographystyle{splncs03}
+\bibliography{literature}
+	
+\end{document}
